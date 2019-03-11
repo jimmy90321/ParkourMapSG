@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "628812414457",
+    "firebase_url": "https://sg-parkour-map.firebaseio.com",
+    "project_id": "sg-parkour-map",
+    "storage_bucket": "sg-parkour-map.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628812414457:android:4e4f1e7ec27e67ea",
+        "android_client_info": {
+          "package_name": "jimmyliao.com.parkourmapsg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "628812414457-anun5hf8ck0covurngqfq0euqnc4p9h8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6WHAhjLplXr1rVIlEByNR3ugX8ZJKAS0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

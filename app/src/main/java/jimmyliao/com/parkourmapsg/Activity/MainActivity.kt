@@ -3,6 +3,9 @@ package jimmyliao.com.parkourmapsg.Activity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import jimmyliao.com.parkourmapsg.Adapter.SpotAdapter
 import jimmyliao.com.parkourmapsg.Module.Spot
 import jimmyliao.com.parkourmapsg.R
@@ -16,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        createSpot()
+//        createSpot()
+        getSpot()
         setAdapter()
     }
 
@@ -26,8 +30,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun getSpot() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("Central").get().addOnSuccessListener { documents ->
+            for (doc in documents) {
+                val data = doc.data
+                testSpots.add(Spot(data.get("Name").toString(),data.get("Description").toString(),getDrawable(R.drawable.pksgfinal_colour_pks_white)))
+            }
+            updateRecyclerView()
+        }
+    }
+
     private fun setAdapter() {
         recycler_main.adapter = SpotAdapter(this, testSpots)
         recycler_main.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun updateRecyclerView(){
+        recycler_main.adapter?.notifyDataSetChanged()
     }
 }
