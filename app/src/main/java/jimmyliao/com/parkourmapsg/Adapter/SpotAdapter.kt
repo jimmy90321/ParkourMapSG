@@ -25,12 +25,12 @@ class SpotAdapter(val context: Context, private val spotList: List<Spot>) : Recy
     inner class SpotVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val name = itemView.tv_spot_name
         private val desc = itemView.tv_spot_description
-        private var photo = itemView.iv_spot_photo
+//        private var photo = itemView.iv_spot_photo
 
         fun bind(spot: Spot) {
             name.text = spot.name
             desc.text = spot.description
-            photo.setImageDrawable(spot.photo)
+//            photo.setImageDrawable(spot.photo)
         }
     }
 }
