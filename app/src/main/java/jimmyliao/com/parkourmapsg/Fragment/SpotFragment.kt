@@ -12,6 +12,7 @@ import jimmyliao.com.parkourmapsg.Adapter.SpotAdapter
 import jimmyliao.com.parkourmapsg.Constants
 import jimmyliao.com.parkourmapsg.LocalDB.SpotDAO
 import jimmyliao.com.parkourmapsg.Module.Spot
+import jimmyliao.com.parkourmapsg.Handler.LogHandler as Logger
 
 import jimmyliao.com.parkourmapsg.R
 import kotlinx.android.synthetic.main.fragment_spot.*
@@ -47,36 +48,38 @@ class SpotFragment : Fragment(), CompoundButton.OnCheckedChangeListener {
 
 
     override fun onCheckedChanged(btn: CompoundButton?, isChecked: Boolean) {
-        when (btn) {
-            rb_area_central -> {
-                rg_area2.clearCheck()
-                setData(Constants.area_central)
-            }
-            rb_area_east -> {
-                rg_area2.clearCheck()
-                setData(Constants.area_east)
-            }
-            rb_area_north -> {
-                rg_area2.clearCheck()
-                setData(Constants.area_north)
-            }
-            rb_area_northeast -> {
-                rg_area1.clearCheck()
-                setData(Constants.area_northeast)
-            }
-            rb_area_west -> {
-                rg_area1.clearCheck()
-                setData(Constants.area_west)
-            }
-            else -> {
-                rg_area1.clearCheck()
-                setData(
-                    Constants.area_central,
-                    Constants.area_east,
-                    Constants.area_north,
-                    Constants.area_northeast,
-                    Constants.area_west
-                )
+        if (isChecked) {
+            when (btn) {
+                rb_area_central -> {
+                    rg_area2.clearCheck()
+                    setData(Constants.area_central)
+                }
+                rb_area_east -> {
+                    rg_area2.clearCheck()
+                    setData(Constants.area_east)
+                }
+                rb_area_north -> {
+                    rg_area2.clearCheck()
+                    setData(Constants.area_north)
+                }
+                rb_area_northeast -> {
+                    rg_area1.clearCheck()
+                    setData(Constants.area_northeast)
+                }
+                rb_area_west -> {
+                    rg_area1.clearCheck()
+                    setData(Constants.area_west)
+                }
+                else -> {
+                    rg_area1.clearCheck()
+                    setData(
+                        Constants.area_central,
+                        Constants.area_east,
+                        Constants.area_north,
+                        Constants.area_northeast,
+                        Constants.area_west
+                    )
+                }
             }
         }
     }
