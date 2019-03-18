@@ -3,13 +3,14 @@ package jimmyliao.com.parkourmapsg.LocalDB
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import jimmyliao.com.parkourmapsg.Constants
 import jimmyliao.com.parkourmapsg.Handler.LogHandler as Logger
 
 class SQLiteHandler(context: Context, name: String, factory: SQLiteDatabase.CursorFactory?, version: Int) :
     SQLiteOpenHelper(context, name, factory, version) {
 
     private val tag = "SQLiteHandler"
-    private val tableName = listOf("Central", "East", "North", "NorthEast", "West")
+    private val tableName = Constants.areas
 
     override fun onCreate(db: SQLiteDatabase?) {
         for (name in tableName) {
