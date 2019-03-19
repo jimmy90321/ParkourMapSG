@@ -29,6 +29,8 @@ class SQLiteHandler(context: Context, name: String, factory: SQLiteDatabase.Curs
         Logger.Info(tag, "delete table version:$oldVersion, create new table version:$newVersion success")
     }
 
+
+
     companion object {
         private const val DATABASE_NAME = "Spot.db"
         private const val VERSION = 1
@@ -40,6 +42,10 @@ class SQLiteHandler(context: Context, name: String, factory: SQLiteDatabase.Curs
                 null,
                 VERSION
             ).writableDatabase
+        }
+
+        fun delDatabase(context: Context){
+            context.deleteDatabase(DATABASE_NAME)
         }
     }
 }

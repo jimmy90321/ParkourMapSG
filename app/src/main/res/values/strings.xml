@@ -8,4 +8,5 @@
     <string name="spot_area_north">North</string>
     <string name="spot_area_northeast">NorthEast</string>
     <string name="spot_area_west">West</string>
+    <string name="text_loading_data">Loading all spots...</string>
 </resources>
