@@ -125,7 +125,8 @@ class IntroActivity : AppCompatActivity() {
                         doc.getString("Name"),
                         doc.getString("Description"),
                         doc.getDouble("Latitude"),
-                        doc.getDouble("Longitude")
+                        doc.getDouble("Longitude"),
+                        areaName
                     )
                 )
                 dataProgress++

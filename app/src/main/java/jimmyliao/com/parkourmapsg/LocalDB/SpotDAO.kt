@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import jimmyliao.com.parkourmapsg.Constants
 import jimmyliao.com.parkourmapsg.Module.Spot
 
 class SpotDAO(context: Context) {
@@ -15,6 +16,7 @@ class SpotDAO(context: Context) {
         const val COLUMN_DESCRIPTION = "description"
         const val COLUMN_LATITUDE = "latitude"
         const val COLUMN_LONGITUDE = "longitude"
+        const val COLUMN_AREA = "area"
 
         // create new table
         fun createTable(TABLE_NAME: String): String {
@@ -24,7 +26,8 @@ class SpotDAO(context: Context) {
                     "$COLUMN_NAME TEXT NOT NULL, " +
                     "$COLUMN_DESCRIPTION TEXT NOT NULL, " +
                     "$COLUMN_LATITUDE REAL NOT NULL, " +
-                    "$COLUMN_LONGITUDE REAL NOT NULL)"
+                    "$COLUMN_LONGITUDE REAL NOT NULL, " +
+                    "$COLUMN_AREA TEXT NOT NULL)"
         }
     }
 
@@ -85,6 +88,7 @@ class SpotDAO(context: Context) {
         cv.put(COLUMN_DESCRIPTION, spot.description)
         cv.put(COLUMN_LATITUDE, spot.latitude)
         cv.put(COLUMN_LONGITUDE, spot.longitude)
+        cv.put(COLUMN_AREA, spot.area)
     }
 
     fun delete(tableName: String, id: Long): Boolean {
@@ -109,5 +113,12 @@ class SpotDAO(context: Context) {
     }
 
     private fun getRecord(cursor: Cursor): Spot =
-        Spot(cursor.getLong(0), cursor.getString(1), cursor.getString(2), cursor.getDouble(3), cursor.getDouble(4))
+        Spot(
+            cursor.getLong(0),
+            cursor.getString(1),
+            cursor.getString(2),
+            cursor.getDouble(3),
+            cursor.getDouble(4),
+            cursor.getString(5)
+        )
 }

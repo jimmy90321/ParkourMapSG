@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".Activity.HomeActivity">
         </activity>
+        <activity android:name=".Activity.SpotDetailActivity">
+        </activity>
     </application>
 
 </manifest>

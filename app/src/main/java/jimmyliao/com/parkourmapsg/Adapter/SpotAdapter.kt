@@ -1,10 +1,12 @@
 package jimmyliao.com.parkourmapsg.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import jimmyliao.com.parkourmapsg.Activity.SpotDetailActivity
 import jimmyliao.com.parkourmapsg.Module.Spot
 import jimmyliao.com.parkourmapsg.R
 import kotlinx.android.synthetic.main.item_spot.view.*
@@ -31,6 +33,13 @@ class SpotAdapter(val context: Context, private val spotList: List<Spot>) : Recy
             name.text = spot.name
             desc.text = spot.description
 //            photo.setImageDrawable(spot.photo)
+
+            itemView.setOnClickListener {
+                val intent = Intent(context,SpotDetailActivity::class.java)
+                intent.putExtra(SpotDetailActivity.SPOT_AREA,spot.area)
+                intent.putExtra(SpotDetailActivity.SPOT_ID,spot.id)
+                context.startActivity(intent)
+            }
         }
     }
 }
